@@ -1,0 +1,51 @@
+Clean build directory: /tmp/netlist-release-check.HhVeGd
+g++ -O2 -std=c++17 -Wall -Wextra -o dtp_ca_sim ca/dtp_ca_main.cpp
+python3 scripts/verify.py
+PASS: cycles=200 N=1 K=0 R=1, exact final state + VCD
+PASS: cycles=200 N=1 K=1 R=4, exact final state + VCD
+PASS: cycles=200 N=32 K=1 R=1, exact final state + VCD
+PASS: cycles=200 N=32 K=8 R=12, exact final state + VCD
+PASS: cycles=200 N=32 K=32 R=3, exact final state + VCD
+PASS: invalid dimensions rejected
+g++ -O2 -std=c++17 -Wall -Wextra -I/home/xylon/work/_tools/systemc-install/include -o dtp_systemc ca/dtp_systemc.cpp -L/home/xylon/work/_tools/systemc-install/lib -L/home/xylon/work/_tools/systemc-install/lib-linux64 -Wl,-rpath,/home/xylon/work/_tools/systemc-install/lib -Wl,-rpath,/home/xylon/work/_tools/systemc-install/lib-linux64 -lsystemc
+iverilog -g2012 -o rtl/dtp_sim.vvp rtl/dtp_core.v rtl/dtp_tb.v
+python3 scripts/verify_models.py
+PASS: RTL == SystemC == reference, 20 cycles, final accum=240
+./dtp_ca_sim 20000 2048 8 1
+== DTP 芯片 CA 模型：端口更新机制对比 ==
+通道数 N=2048, 每通道输入端口 P=6, 寄存器 R=1, 每周期活动通道 K=8, 周期数=20000
+端口总数=12288（基线每周期轮询全部端口；优化每周期至多派发 48 个变化信号）
+
+基线 O(n) 轮询：   308.099 ms
+优化 O(1) 派发：   111.188 ms
+
+功能对齐校验: PASS（两版最终状态逐位一致）
+  基线 checksum=668230c087396633
+  优化 checksum=668230c087396633
+  仿真提速           : 2.77 x
+g++ -O2 -std=c++17 -Wall -Wextra -pg -o dtp_ca_sim_pg ca/dtp_ca_main.cpp
+./dtp_ca_sim_pg 60000 2048 8 12 --poll
+== DTP 芯片 CA 模型：端口更新机制对比 ==
+通道数 N=2048, 每通道输入端口 P=6, 寄存器 R=12, 每周期活动通道 K=8, 周期数=60000
+端口总数=12288（基线每周期轮询全部端口；优化每周期至多派发 48 个变化信号）
+
+基线 O(n) 轮询：  1435.409 ms
+mv gmon.out gmon_poll.out
+./dtp_ca_sim_pg 60000 2048 8 12 --dispatch
+== DTP 芯片 CA 模型：端口更新机制对比 ==
+通道数 N=2048, 每通道输入端口 P=6, 寄存器 R=12, 每周期活动通道 K=8, 周期数=60000
+端口总数=12288（基线每周期轮询全部端口；优化每周期至多派发 48 个变化信号）
+
+优化 O(1) 派发：  1001.520 ms
+mv gmon.out gmon_dispatch.out
+gprof -b dtp_ca_sim_pg gmon_poll.out > gprof_poll.txt
+gprof -b dtp_ca_sim_pg gmon_dispatch.out > gprof_dispatch.txt
+
+Environment:
+Linux 6.6.87.2-microsoft-standard-WSL2
+g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+flex 2.6.4
+bison (GNU Bison) 3.8.2
+Python 3.10.12
+Model name:                           Intel(R) Core(TM) i7-14700K
+Clean build directory: /tmp/netlist-release-check.HhVeGd

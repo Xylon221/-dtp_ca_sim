@@ -1,0 +1,9 @@
+.git
+results
+dtp_ca_sim
+dtp_ca_sim_pg
+dtp_systemc
+*.vcd
+*.out
+*.txt
+rtl/*.vvp

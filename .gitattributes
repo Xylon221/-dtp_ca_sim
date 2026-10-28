@@ -1,0 +1,2 @@
+* text=auto eol=lf
+docs/validation/gprof_*.txt whitespace=-blank-at-eol

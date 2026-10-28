@@ -1,0 +1,118 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 94.29      0.33     0.33 122884096     0.00     0.00  Channel::tick()
+  2.86      0.34     0.01  1445358     0.01     0.01  DispatchEngine::signal_changed(Signal*)
+  2.86      0.35     0.01                             main
+  0.00      0.35     0.00  1445358     0.00     0.00  Channel::on_input_change()
+  0.00      0.35     0.00  1445358     0.00     0.00  Channel::eval()
+  0.00      0.35     0.00    12288     0.00     0.00  void std::vector<PortBinding, std::allocator<PortBinding> >::_M_realloc_insert<PortBinding>(__gnu_cxx::__normal_iterator<PortBinding*, std::vector<PortBinding, std::allocator<PortBinding> > >, PortBinding&&)
+  0.00      0.35     0.00    12288     0.00     0.00  std::__detail::_Map_base<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](Signal* const&)
+  0.00      0.35     0.00     2048     0.00     0.00  Channel::~Channel()
+  0.00      0.35     0.00     2048     0.00     0.00  std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_assign(unsigned long, unsigned int const&)
+  0.00      0.35     0.00       15     0.00     0.00  void std::vector<Signal*, std::allocator<Signal*> >::_M_realloc_insert<Signal*>(__gnu_cxx::__normal_iterator<Signal**, std::vector<Signal*, std::allocator<Signal*> > >, Signal*&&)
+  0.00      0.35     0.00       11     0.00     0.00  std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&)
+  0.00      0.35     0.00        2     0.00     0.00  std::_Vector_base<Signal*, std::allocator<Signal*> >::~_Vector_base()
+  0.00      0.35     0.00        1     0.00     0.00  checksum(Chip const&)
+  0.00      0.35     0.00        1     0.00     0.00  Chip::all_signals()
+  0.00      0.35     0.00        1     0.00    11.00  Chip::Chip(int, int)
+  0.00      0.35     0.00        1     0.00     0.00  Chip::~Chip()
+  0.00      0.35     0.00        1     0.00     0.00  std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_deallocate_buckets()
+  0.00      0.35     0.00        1     0.00     0.00  std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::clear()
+  0.00      0.35     0.00        1     0.00     0.00  std::_Vector_base<unsigned int, std::allocator<unsigned int> >::~_Vector_base()
+
+			Call graph
+
+
+granularity: each sample hit covers 4 byte(s) for 2.86% of 0.35 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.01    0.34                 main [1]
+                0.33    0.00 122880000/122884096     Channel::tick() [2]
+                0.01    0.00 1445358/1445358     DispatchEngine::signal_changed(Signal*) [3]
+                0.00    0.00       1/1           Chip::Chip(int, int) [4]
+                0.00    0.00   12288/12288       std::__detail::_Map_base<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](Signal* const&) [14]
+                0.00    0.00   12288/12288       void std::vector<PortBinding, std::allocator<PortBinding> >::_M_realloc_insert<PortBinding>(__gnu_cxx::__normal_iterator<PortBinding*, std::vector<PortBinding, std::allocator<PortBinding> > >, PortBinding&&) [13]
+                0.00    0.00       2/2           std::_Vector_base<Signal*, std::allocator<Signal*> >::~_Vector_base() [19]
+                0.00    0.00       1/1           Chip::all_signals() [21]
+                0.00    0.00       1/1           std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::clear() [24]
+                0.00    0.00       1/1           std::_Vector_base<unsigned int, std::allocator<unsigned int> >::~_Vector_base() [25]
+                0.00    0.00       1/1           std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_deallocate_buckets() [23]
+                0.00    0.00       1/1           checksum(Chip const&) [20]
+                0.00    0.00       1/1           Chip::~Chip() [22]
+-----------------------------------------------
+                0.00    0.00    4096/122884096     Chip::Chip(int, int) [4]
+                0.33    0.00 122880000/122884096     main [1]
+[2]     94.3    0.33    0.00 122884096         Channel::tick() [2]
+-----------------------------------------------
+                0.01    0.00 1445358/1445358     main [1]
+[3]      2.9    0.01    0.00 1445358         DispatchEngine::signal_changed(Signal*) [3]
+                0.00    0.00 1445358/1445358     Channel::eval() [12]
+                0.00    0.00 1445358/1445358     Channel::on_input_change() [11]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[4]      0.0    0.00    0.00       1         Chip::Chip(int, int) [4]
+                0.00    0.00    4096/122884096     Channel::tick() [2]
+                0.00    0.00    2048/2048        std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_assign(unsigned long, unsigned int const&) [16]
+-----------------------------------------------
+                0.00    0.00 1445358/1445358     DispatchEngine::signal_changed(Signal*) [3]
+[11]     0.0    0.00    0.00 1445358         Channel::on_input_change() [11]
+-----------------------------------------------
+                0.00    0.00 1445358/1445358     DispatchEngine::signal_changed(Signal*) [3]
+[12]     0.0    0.00    0.00 1445358         Channel::eval() [12]
+-----------------------------------------------
+                0.00    0.00   12288/12288       main [1]
+[13]     0.0    0.00    0.00   12288         void std::vector<PortBinding, std::allocator<PortBinding> >::_M_realloc_insert<PortBinding>(__gnu_cxx::__normal_iterator<PortBinding*, std::vector<PortBinding, std::allocator<PortBinding> > >, PortBinding&&) [13]
+-----------------------------------------------
+                0.00    0.00   12288/12288       main [1]
+[14]     0.0    0.00    0.00   12288         std::__detail::_Map_base<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](Signal* const&) [14]
+                0.00    0.00      11/11          std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) [18]
+-----------------------------------------------
+                0.00    0.00    2048/2048        Chip::~Chip() [22]
+[15]     0.0    0.00    0.00    2048         Channel::~Channel() [15]
+-----------------------------------------------
+                0.00    0.00    2048/2048        Chip::Chip(int, int) [4]
+[16]     0.0    0.00    0.00    2048         std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_assign(unsigned long, unsigned int const&) [16]
+-----------------------------------------------
+                0.00    0.00      15/15          Chip::all_signals() [21]
+[17]     0.0    0.00    0.00      15         void std::vector<Signal*, std::allocator<Signal*> >::_M_realloc_insert<Signal*>(__gnu_cxx::__normal_iterator<Signal**, std::vector<Signal*, std::allocator<Signal*> > >, Signal*&&) [17]
+-----------------------------------------------
+                0.00    0.00      11/11          std::__detail::_Map_base<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](Signal* const&) [14]
+[18]     0.0    0.00    0.00      11         std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) [18]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[19]     0.0    0.00    0.00       2         std::_Vector_base<Signal*, std::allocator<Signal*> >::~_Vector_base() [19]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[20]     0.0    0.00    0.00       1         checksum(Chip const&) [20]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[21]     0.0    0.00    0.00       1         Chip::all_signals() [21]
+                0.00    0.00      15/15          void std::vector<Signal*, std::allocator<Signal*> >::_M_realloc_insert<Signal*>(__gnu_cxx::__normal_iterator<Signal**, std::vector<Signal*, std::allocator<Signal*> > >, Signal*&&) [17]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[22]     0.0    0.00    0.00       1         Chip::~Chip() [22]
+                0.00    0.00    2048/2048        Channel::~Channel() [15]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[23]     0.0    0.00    0.00       1         std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_deallocate_buckets() [23]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[24]     0.0    0.00    0.00       1         std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::clear() [24]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[25]     0.0    0.00    0.00       1         std::_Vector_base<unsigned int, std::allocator<unsigned int> >::~_Vector_base() [25]
+-----------------------------------------------
+
+Index by function name
+
+  [20] checksum(Chip const&)   [2] Channel::tick()        [13] void std::vector<PortBinding, std::allocator<PortBinding> >::_M_realloc_insert<PortBinding>(__gnu_cxx::__normal_iterator<PortBinding*, std::vector<PortBinding, std::allocator<PortBinding> > >, PortBinding&&)
+   [3] DispatchEngine::signal_changed(Signal*) [15] Channel::~Channel() [17] void std::vector<Signal*, std::allocator<Signal*> >::_M_realloc_insert<Signal*>(__gnu_cxx::__normal_iterator<Signal**, std::vector<Signal*, std::allocator<Signal*> > >, Signal*&&)
+  [21] Chip::all_signals()    [23] std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_deallocate_buckets() [16] std::vector<unsigned int, std::allocator<unsigned int> >::_M_fill_assign(unsigned long, unsigned int const&)
+   [4] Chip::Chip(int, int)   [24] std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::clear() [14] std::__detail::_Map_base<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>, true>::operator[](Signal* const&)
+  [22] Chip::~Chip()          [18] std::_Hashtable<Signal*, std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > >, std::allocator<std::pair<Signal* const, std::vector<PortBinding, std::allocator<PortBinding> > > >, std::__detail::_Select1st, std::equal_to<Signal*>, std::hash<Signal*>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_rehash(unsigned long, unsigned long const&) [1] main
+  [11] Channel::on_input_change() [19] std::_Vector_base<Signal*, std::allocator<Signal*> >::~_Vector_base()
+  [12] Channel::eval()        [25] std::_Vector_base<unsigned int, std::allocator<unsigned int> >::~_Vector_base()

@@ -1,0 +1,10 @@
+/dtp_ca_sim
+/dtp_ca_sim_pg
+/dtp_pg
+/dtp_systemc
+/gmon*.out
+/gprof_*.txt
+/*.vcd
+/rtl/*.vvp
+/results/
+__pycache__/

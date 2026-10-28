@@ -1,0 +1,9 @@
+name: Build and verify
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  verify:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y build-essential python3 binutils iverilog libsystemc-dev pkg-config
+      - run: make -j2 && make test && make test-models
